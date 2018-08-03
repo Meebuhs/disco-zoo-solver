@@ -1,0 +1,350 @@
+<DATA>
+	<LOCATION>
+		<NAME>Farm</NAME>
+		<ANIMALS>
+			<ANIMAL>
+				<NAME>Sheep</NAME>
+				<PATTERN>(0 0) (1 0) (2 0) (3 0)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Pig</NAME>
+				<PATTERN>(0 0) (1 0) (0 1) (1 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Rabbit</NAME>
+				<PATTERN>(0 0) (0 1) (0 2) (0 3)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Horse</NAME>
+				<PATTERN>(0 0) (0 1) (0 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Cow</NAME>
+				<PATTERN>(0 0) (1 0) (2 0)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Unicorn</NAME>
+				<PATTERN>(0 0) (1 1) (2 1)</PATTERN>
+				</ANIMAL>
+		</ANIMALS>
+	</LOCATION>
+	<LOCATION>
+		<NAME>Outback</NAME>
+		<ANIMALS>
+			<ANIMAL>
+				<NAME>Kangaroo</NAME>
+				<PATTERN>(0 0) (1 1) (2 2) (3 3)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Platypus</NAME>
+				<PATTERN>(0 0) (1 0) (1 1) (2 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Crocodile</NAME>
+				<PATTERN>(0 0) (1 0) (2 0) (3 0)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Koala</NAME>
+				<PATTERN>(0 0) (1 0) (1 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Cockatoo</NAME>
+				<PATTERN>(0 0) (1 1) (1 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Tiddalik</NAME>
+				<PATTERN>(0 1) (1 0) (2 1)</PATTERN>
+				</ANIMAL>
+		</ANIMALS>
+	</LOCATION>
+	<LOCATION>
+		<NAME>Savanna</NAME>
+		<ANIMALS>
+			<ANIMAL>
+				<NAME>Zebra</NAME>
+				<PATTERN>(1 0) (0 1) (2 1) (1 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Hippo</NAME>
+				<PATTERN>(0 0) (2 0) (0 2) (2 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Giraffe</NAME>
+				<PATTERN>(0 0) (0 1) (0 2) (0 3)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Lion</NAME>
+				<PATTERN>(0 0) (1 0) (2 0)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Elephant</NAME>
+				<PATTERN>(0 0) (0 1) (1 0)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Gryphon</NAME>
+				<PATTERN>(0 0) (1 1) (2 0)</PATTERN>
+				</ANIMAL>
+		</ANIMALS>
+	</LOCATION>
+	<LOCATION>
+		<NAME>Northern</NAME>
+		<ANIMALS>
+			<ANIMAL>
+				<NAME>Bear</NAME>
+				<PATTERN>(0 0) (1 0) (1 1) (1 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Skunk</NAME>
+				<PATTERN>(0 1) (1 0) (1 1) (2 0)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Beaver</NAME>
+				<PATTERN>(0 1) (1 1) (2 0) (2 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Moose</NAME>
+				<PATTERN>(0 0) (1 1) (2 0)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Fox</NAME>
+				<PATTERN>(0 0) (1 0) (2 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Sasquatch</NAME>
+				<PATTERN>(0 0) (0 1)</PATTERN>
+				</ANIMAL>
+		</ANIMALS>
+	</LOCATION>
+	<LOCATION>
+		<NAME>Polar</NAME>
+		<ANIMALS>
+			<ANIMAL>
+				<NAME>Penguin</NAME>
+				<PATTERN>(0 2) (1 0) (1 1) (2 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Seal</NAME>
+				<PATTERN>(0 0) (1 1) (2 2) (3 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Muskox</NAME>
+				<PATTERN>(0 0) (0 1) (1 0) (2 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Polar Bear</NAME>
+				<PATTERN>(0 0) (2 0) (2 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Walrus</NAME>
+				<PATTERN>(0 0) (1 1) (2 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Yeti</NAME>
+				<PATTERN>(0 0) (0 2)</PATTERN>
+				</ANIMAL>
+		</ANIMALS>
+	</LOCATION>
+	<LOCATION>
+		<NAME>Jungle</NAME>
+		<ANIMALS>
+			<ANIMAL>
+				<NAME>Monkey</NAME>
+				<PATTERN>(0 0) (1 1) (2 0) (3 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Toucan</NAME>
+				<PATTERN>(0 1) (1 0) (1 2) (1 3)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Gorilla</NAME>
+				<PATTERN>(0 0) (0 1) (2 0) (2 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Panda</NAME>
+				<PATTERN>(0 1) (2 0) (2 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Tiger</NAME>
+				<PATTERN>(0 0) (2 0) (3 0)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Phoenix</NAME>
+				<PATTERN>(0 0) (2 2)</PATTERN>
+				</ANIMAL>
+		</ANIMALS>
+	</LOCATION>
+	<LOCATION>
+		<NAME>Jurassic</NAME>
+		<ANIMALS>
+			<ANIMAL>
+				<NAME>Diplodocus</NAME>
+				<PATTERN>(0 0) (1 1) (1 2) (2 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Stegosaurus</NAME>
+				<PATTERN>(0 1) (1 0) (2 0) (3 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Raptor</NAME>
+				<PATTERN>(0 0) (1 0) (1 1) (2 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>T-Rex</NAME>
+				<PATTERN>(0 0) (0 2) (1 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Triceratops</NAME>
+				<PATTERN>(0 0) (0 2) (2 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Dragon</NAME>
+				<PATTERN>(0 0) (2 1)</PATTERN>
+				</ANIMAL>
+		</ANIMALS>
+	</LOCATION>
+	<LOCATION>
+		<NAME>Ice Age</NAME>
+		<ANIMALS>
+			<ANIMAL>
+				<NAME>Wooly Rhino</NAME>
+				<PATTERN>(0 1) (1 2) (2 0) (3 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Giant Sloth</NAME>
+				<PATTERN>(0 0) (0 2) (2 1) (2 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Dire Wolf</NAME>
+				<PATTERN>(0 1) (1 0) (1 2) (3 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Saber Tooth</NAME>
+				<PATTERN>(0 0) (1 2) (2 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Mammoth</NAME>
+				<PATTERN>(0 1) (1 0) (2 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Akhlut</NAME>
+				<PATTERN>(0 1) (2 0) (2 2)</PATTERN>
+				</ANIMAL>
+		</ANIMALS>
+	</LOCATION>
+	<LOCATION>
+		<NAME>City</NAME>
+		<ANIMALS>
+			<ANIMAL>
+				<NAME>Raccoon</NAME>
+				<PATTERN>(0 0) (0 1) (2 0) (3 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Pigeon</NAME>
+				<PATTERN>(0 0) (1 1) (1 2) (2 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Rat</NAME>
+				<PATTERN>(0 0) (1 0) (1 1) (3 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Squirrel</NAME>
+				<PATTERN>(0 1) (1 2) (2 0)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Opossum</NAME>
+				<PATTERN>(0 0) (0 1) (2 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Sewer Turtle</NAME>
+				<PATTERN>(0 0) (1 0)</PATTERN>
+				</ANIMAL>
+		</ANIMALS>
+	</LOCATION>
+	<LOCATION>
+		<NAME>Mountain</NAME>
+		<ANIMALS>
+			<ANIMAL>
+				<NAME>Goat</NAME>
+				<PATTERN>(0 0) (0 1) (1 1) (2 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Cougar</NAME>
+				<PATTERN>(0 0) (0 2) (1 1) (2 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Elk</NAME>
+				<PATTERN>(0 0) (1 1) (2 0) (2 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Eagle</NAME>
+				<PATTERN>(0 0) (0 1) (1 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Coyote</NAME>
+				<PATTERN>(0 0) (1 0) (2 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Aatxe</NAME>
+				<PATTERN>(0 1) (2 0)</PATTERN>
+				</ANIMAL>
+		</ANIMALS>
+	</LOCATION>
+	<LOCATION>
+		<NAME>Moon</NAME>
+		<ANIMALS>
+			<ANIMAL>
+				<NAME>Moonkey</NAME>
+				<PATTERN>(0 0) (0 1) (2 1) (2 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Lunar Tick</NAME>
+				<PATTERN>(0 3) (1 0) (1 2) (2 3)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Tribble</NAME>
+				<PATTERN>(0 1) (1 0) (1 1) (2 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Moonicorn</NAME>
+				<PATTERN>(0 0) (0 1) (1 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Luna Moth</NAME>
+				<PATTERN>(0 0) (1 2) (2 0)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Jade Rabbit</NAME>
+				<PATTERN>(0 0) (1 2)</PATTERN>
+				</ANIMAL>
+		</ANIMALS>
+	</LOCATION>
+	<LOCATION>
+		<NAME>Mars</NAME>
+		<ANIMALS>
+			<ANIMAL>
+				<NAME>Rock</NAME>
+				<PATTERN>(0 0) (0 1) (1 0) (1 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Marsmot</NAME>
+				<PATTERN>(0 2) (1 0) (1 1) (1 2)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Marsmoset</NAME>
+				<PATTERN>(0 0) (1 2) (2 0) (2 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Rover</NAME>
+				<PATTERN>(0 1) (1 0) (2 1)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Martian</NAME>
+				<PATTERN>(0 0) (1 1) (2 0)</PATTERN>
+				</ANIMAL>
+			<ANIMAL>
+				<NAME>Marsmallow</NAME>
+				<PATTERN>(0 0) (0 2)</PATTERN>
+				</ANIMAL>
+		</ANIMALS>
+	</LOCATION>
+</DATA>
