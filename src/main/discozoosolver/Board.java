@@ -118,9 +118,12 @@ public class Board {
                 }
             }
         }
+        processCells();
+    }
+
+    public void processCells() {
         generateCellContents();
         checkForKnownCells();
-        updatePriorities();
     }
 
     /**
@@ -140,29 +143,37 @@ public class Board {
     }
 
     private void checkForKnownCells() {
-        for (Animal animal : animals) {
-            List<Candidate> options = new ArrayList<>();
-            String name = animal.getName();
-            for (Candidate candidate : candidates) {
-                if (candidate.getAnimal().getName().equals(name)) {
-                    options.add(candidate);
-                }
-            }
-            //System.out.println(options);
-            if (options.size() == 1) {
-                setKnownCandidate(options.get(0));
-            } else {
-                Candidate firstCandidate = options.get(0);
-                for (Block block : firstCandidate.getPosition()) {
-                    Boolean known = true;
-                    for (Candidate candidate : options) {
-                        if (!(candidate.getPosition().contains(block))) {
-                            known = false;
-                        }
+        boolean changesMade = true;
+        while (changesMade) {
+            changesMade = false;
+            for (Animal animal : animals) {
+                List<Candidate> options = new ArrayList<>();
+                String name = animal.getName();
+                for (Candidate candidate : candidates) {
+                    if (candidate.getAnimal().getName().equals(name)) {
+                        options.add(candidate);
                     }
-                    // System.out.println(known + " " + block);
-                    if (known) {
-                        setKnownBlock(block, firstCandidate.getAnimal().getName());
+                }
+                // System.out.println(options);
+                if (options.size() == 1) {
+                    if (setKnownCandidate(options.get(0))) {
+                        changesMade = true;
+                    }
+                } else {
+                    Candidate firstCandidate = options.get(0);
+                    for (Block block : firstCandidate.getPosition()) {
+                        boolean known = true;
+                        for (Candidate candidate : options) {
+                            if (!(candidate.getPosition().contains(block))) {
+                                known = false;
+                            }
+                        }
+                        // System.out.println(known + " " + block);
+                        if (known) {
+                            if (setKnownBlock(block, firstCandidate.getAnimal().getName())) {
+                                changesMade = true;
+                            }
+                        }
                     }
                 }
             }
@@ -174,22 +185,28 @@ public class Board {
     /**
      * Sets known status for each block in the candidate.
      * @param candidate The candidate which is known.
+     * @return true if a change is made to any block in the candidate.
      */
-    private void setKnownCandidate(Candidate candidate) {
+    private boolean setKnownCandidate(Candidate candidate) {
+        boolean changesMade = false;
         String animal = candidate.getAnimal().getName();
         for (Block block : candidate.getPosition()) {
-            setKnownBlock(block, animal);
+            if (setKnownBlock(block, animal)) {
+                changesMade = true;
+            }
         }
+        return changesMade;
     }
 
     /**
      * Sets the status of the block which is known to contain animal.
      * @param block The block which is known to contain animal.
      * @param animal The animal which block contains.
+     * @return true if a change is made to a block.
      */
-    private void setKnownBlock(Block block, String animal) {
+    private boolean setKnownBlock(Block block, String animal) {
         Cell cell = getCell(block.x(), block.y());
-        if (!cell.getFinalised()) {
+        if (!(cell.getFinalised() || cell.getKnown())) {
             // Remove any candidate using the block
             Predicate<Candidate> candidatePredicate = c -> (c.getPosition().contains(block) ^ c.getAnimal().getName()
                     .equals(animal));
@@ -197,7 +214,9 @@ public class Board {
             // Set cell as known
             cell.setKnown(true);
             cell.setFinalised(false);
+            return true;
         }
+        return false;
     }
 
     public void confirmHit(Block block, String animal) {
@@ -205,9 +224,7 @@ public class Board {
                 .equals(animal));
         candidates.removeIf(candidatePredicate);
         setFinalised(block);
-        generateCellContents();
-        checkForKnownCells();
-        updatePriorities();
+        processCells();
 
     }
 
@@ -215,9 +232,7 @@ public class Board {
         Predicate<Candidate> candidatePredicate = c -> c.getPosition().contains(block);
         candidates.removeIf(candidatePredicate);
         setFinalised(block);
-        generateCellContents();
-        checkForKnownCells();
-        updatePriorities();
+        processCells();
     }
 
     public void setFinalised(Block block) {
