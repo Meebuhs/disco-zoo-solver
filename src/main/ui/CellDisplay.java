@@ -7,6 +7,7 @@ import javafx.scene.layout.GridPane;
 import main.discozoosolver.Cell;
 import main.discozoosolver.Constants;
 
+import java.io.File;
 import java.util.List;
 
 public class CellDisplay {
@@ -83,7 +84,8 @@ public class CellDisplay {
         }
         String path = (filename.equals(Constants.BLANK_DARK) ? String.format("elements/%s.png", filename) : String
                 .format("animals/%s.png", filename));
-        Image image = new Image(path);
+        Image image = new Image(new File("./src/main/resources/" + path).toURI().toString());
+
         ImageView iv = new ImageView();
         iv.setImage(image);
         iv.setPreserveRatio(true);
