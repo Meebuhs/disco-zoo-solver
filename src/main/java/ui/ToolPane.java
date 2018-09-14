@@ -1,34 +1,27 @@
-package main.ui;
+package ui;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.ToolBar;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
-
 import javafx.scene.layout.HBox;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Integer.parseInt;
-
-public class ToolPane {
+class ToolPane {
     private SolverApp solver;
     private ToolBar toolBar;
-    private HBox animalSelection;
     private List<ComboBox<String>> dropdowns;
 
-    public ToolPane(SolverApp solver) {
+    ToolPane(SolverApp solver) {
         this.solver = solver;
         this.dropdowns = new ArrayList<>();
-        this.animalSelection = createAnimalSelection();
-        this.toolBar = new ToolBar(this.animalSelection, new Separator());
+        this.toolBar = new ToolBar(createAnimalSelection(), new Separator());
         this.toolBar.setPrefHeight(40);
         initiateDropdowns();
     }
@@ -90,9 +83,8 @@ public class ToolPane {
 
     private void setDropdownOnActions() {
         ComboBox<String> locationDropdown = dropdowns.get(0);
-        locationDropdown.setOnAction((ActionEvent event) -> {
-            initialiseAnimalOptions(locationDropdown.getSelectionModel().getSelectedItem());
-        });
+        locationDropdown.setOnAction((ActionEvent event) ->
+                initialiseAnimalOptions(locationDropdown.getSelectionModel().getSelectedItem()));
         for (int i = 1; i < dropdowns.size(); i++) {
             ComboBox<String> animalDropdown = dropdowns.get(i);
             animalDropdown.valueProperty().addListener((obs, oldAnimal, newAnimal) -> updateAvailableAnimalOptions
@@ -152,7 +144,7 @@ public class ToolPane {
         }
     }
 
-    public ToolBar getToolBar() {
+    ToolBar getToolBar() {
         return toolBar;
     }
 }

@@ -1,4 +1,4 @@
-package main.discozoosolver;
+package discozoosolver;
 
 /** Simple class which represents a block at coordinates (x, y) */
 public class Block {
@@ -6,7 +6,7 @@ public class Block {
     private int y;
 
     /** Creates a new block. */
-    public Block(int x, int y) {
+    Block(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -14,14 +14,14 @@ public class Block {
     /**
      * @return the x coordinate of the block.
      */
-    public int x() {
+    int x() {
         return x;
     }
 
     /**
      * @return the y coordinate of the block.
      */
-    public int y() {
+    int y() {
         return y;
     }
 

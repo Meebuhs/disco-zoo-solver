@@ -1,4 +1,4 @@
-package main.ui;
+package ui;
 
 import javafx.scene.control.ToolBar;
 import javafx.scene.text.Text;
@@ -14,11 +14,11 @@ public class Console {
         display.setPrefHeight(40);
     }
 
-    public ToolBar getDisplay() {
+    ToolBar getDisplay() {
         return display;
     }
 
-    public void setText(String text) {
+    void setText(String text) {
         consoleText.setText(text);
     }
 }

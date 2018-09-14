@@ -1,4 +1,4 @@
-package main.discozoosolver;
+package discozoosolver;
 
 import javafx.scene.paint.Color;
 
@@ -6,7 +6,7 @@ import java.util.Map;
 
 public final class Constants {
     /* Size of the game board */
-    public static final int BOARD_SIZE = 5;
+    static final int BOARD_SIZE = 5;
     /* Background colours for each environment type */
     public static final Map<String, Color> BOARD_COLOURS = Map.ofEntries(
         Map.entry("Ice Age", Color.rgb(162, 187, 176)),

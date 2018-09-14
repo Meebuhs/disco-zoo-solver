@@ -1,0 +1,13 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'ui.SolverApp'
+
+jar {
+    baseName = 'Disco Zoo Solver'
+    version = '0.1.0'
+}
+
+sourceCompatibility = 10
+targetCompatibility = 10

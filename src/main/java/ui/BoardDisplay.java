@@ -1,8 +1,8 @@
-package main.ui;
+package ui;
 
+import discozoosolver.Board;
+import discozoosolver.Cell;
 import javafx.scene.layout.GridPane;
-import main.discozoosolver.Board;
-import main.discozoosolver.Cell;
 
 public class BoardDisplay {
     private SolverApp solver;
@@ -31,7 +31,7 @@ public class BoardDisplay {
         }
     }
 
-    public GridPane getDisplay() {
+    GridPane getDisplay() {
         return display;
     }
 }

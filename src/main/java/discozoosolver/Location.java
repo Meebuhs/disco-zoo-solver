@@ -1,4 +1,4 @@
-package main.discozoosolver;
+package discozoosolver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class Location {
         this(name, new ArrayList<>());
     }
 
-    public Location(String name, List<Animal> animals) {
+    Location(String name, List<Animal> animals) {
         this.name = name;
         this.animals = animals;
     }

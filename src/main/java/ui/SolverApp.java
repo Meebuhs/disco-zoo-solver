@@ -1,16 +1,11 @@
-package main.ui;
+package ui;
 
+import discozoosolver.*;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import main.discozoosolver.Animal;
-import main.discozoosolver.Block;
-import main.discozoosolver.Board;
-import main.discozoosolver.Constants;
-import main.discozoosolver.GameDataParser;
-import main.discozoosolver.Location;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,11 +50,11 @@ public class SolverApp extends Application {
         console.setText(message);
     }
 
-    public void updateBoardDisplay() {
+    void updateBoardDisplay() {
         board.updateDisplay();
     }
 
-    public void startGame(String location, List<String> animals) {
+    void startGame(String location, List<String> animals) {
         board.resetBoard();
         board.setLocation(location);
         for (String animal : animals) {
@@ -70,7 +65,7 @@ public class SolverApp extends Application {
         updateBoardDisplay();
     }
 
-    public List<String> getAnimalsFromLocation(String name) {
+    List<String> getAnimalsFromLocation(String name) {
         Location location = locations.get(name);
         List<Animal> animals = location.getAnimals();
         return animals.stream().map(Animal::getName).collect(Collectors.toList());
@@ -89,7 +84,7 @@ public class SolverApp extends Application {
         board.confirmMiss(block);
     }
 
-    public List<String> getLocationList() {
+    List<String> getLocationList() {
         return new ArrayList<>(locations.keySet());
     }
 }

@@ -1,4 +1,4 @@
-package main.discozoosolver;
+package discozoosolver;
 
 import java.util.List;
 
@@ -7,26 +7,26 @@ public class Pattern {
     private int height;
     private int width;
 
-    public Pattern(List<Block> blocks) {
+    Pattern(List<Block> blocks) {
         this.blocks = blocks;
         height = 1;
         width = 1;
         setDimensions();
     }
 
-    public List<Block> getBlocks() {
+    List<Block> getBlocks() {
         return blocks;
     }
 
-    public int getHeight() {
+    int getHeight() {
         return height;
     }
 
-    public int getWidth() {
+    int getWidth() {
         return width;
     }
 
-    public int getSize() {
+    int getSize() {
         return blocks.size();
     }
 

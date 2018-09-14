@@ -1,4 +1,4 @@
-package main.discozoosolver;
+package discozoosolver;
 
 /**
  * <p>
@@ -10,7 +10,7 @@ package main.discozoosolver;
  * location. Each animal is unique and is identified by its name. They also have a pattern which defines how
  * their tiles are laid out on the game board.
  * </p>
- * */
+ */
 public class Animal {
     private String name;
     private Pattern pattern;
@@ -21,7 +21,7 @@ public class Animal {
      * @param name Name of the animal
      * @param pattern Pattern of the animal
      */
-    public Animal(String name, Pattern pattern) {
+    Animal(String name, Pattern pattern) {
         this.name = name;
         this.pattern = pattern;
     }
@@ -36,7 +36,7 @@ public class Animal {
     /**
      * @return the pattern of the animal.
      */
-    public Pattern getPattern() {
+    Pattern getPattern() {
         return pattern;
     }
 

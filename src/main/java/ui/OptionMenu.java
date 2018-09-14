@@ -1,16 +1,16 @@
-package main.ui;
+package ui;
 
 import javafx.scene.layout.VBox;
 
-public class StatusPane {
+public class OptionMenu {
     private VBox display;
 
-    public StatusPane() {
+    public OptionMenu() {
         display = new VBox();
         display.setPrefWidth(270);
     }
 
-    public VBox getDisplay() {
+    VBox getDisplay() {
         return display;
     }
 }

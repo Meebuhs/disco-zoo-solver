@@ -1,7 +1,7 @@
-package main.discozoosolver;
+package discozoosolver;
 
-import main.ui.CellDisplay;
-import main.ui.SolverApp;
+import ui.CellDisplay;
+import ui.SolverApp;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -19,7 +19,7 @@ public class Cell {
     private CellDisplay cellDisplay;
     private SolverApp solver;
 
-    public Cell(int x, int y, SolverApp solver) {
+    Cell(int x, int y, SolverApp solver) {
         animals = new LinkedHashSet<>();
         this.x = x;
         this.y = y;
@@ -39,15 +39,15 @@ public class Cell {
         return y;
     }
 
-    public int getCount() {
+    int getCount() {
         return count;
     }
 
-    public void resetCount() {
+    void resetCount() {
         this.count = 0;
     }
 
-    public void incrementCount() {
+    void incrementCount() {
         count++;
     }
 
@@ -55,7 +55,7 @@ public class Cell {
         return priority;
     }
 
-    public void setPriority(Boolean priority) {
+    void setPriority(Boolean priority) {
         this.priority = priority;
     }
 
@@ -63,7 +63,7 @@ public class Cell {
         return known;
     }
 
-    public void setKnown(Boolean known) {
+    void setKnown(Boolean known) {
         this.known = known;
     }
 
@@ -71,15 +71,15 @@ public class Cell {
         return finalised;
     }
 
-    public void setFinalised(Boolean finalised) {
+    void setFinalised(Boolean finalised) {
         this.finalised = finalised;
     }
 
-    public void addAnimal(String animal) {
+    void addAnimal(String animal) {
         animals.add(animal);
     }
 
-    public void clearAnimals() {
+    void clearAnimals() {
         animals = new LinkedHashSet<>();
     }
 
@@ -96,7 +96,7 @@ public class Cell {
         cellDisplay.populateCell();
     }
 
-    public void resetCell() {
+    void resetCell() {
         animals = new LinkedHashSet<>();
         count = 0;
         known = false;

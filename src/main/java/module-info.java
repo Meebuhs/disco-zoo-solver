@@ -1,5 +1,6 @@
 module DiscoZooSolver {
-    exports main.ui;
+    exports ui;
+    exports discozoosolver;
     requires java.xml;
     requires javafx.graphics;
     requires javafx.controls;

@@ -1,4 +1,4 @@
-package main.discozoosolver;
+package discozoosolver;
 
 import java.util.List;
 
@@ -6,16 +6,16 @@ public class Candidate {
     private Animal animal;
     private List<Block> position;
 
-    public Candidate(Animal animal, List<Block> position) {
+    Candidate(Animal animal, List<Block> position) {
         this.animal = animal;
         this.position = position;
     }
 
-    public List<Block> getPosition() {
+    List<Block> getPosition() {
         return position;
     }
 
-    public Animal getAnimal() {
+    Animal getAnimal() {
         return animal;
     }
 

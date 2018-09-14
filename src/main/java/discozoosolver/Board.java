@@ -1,7 +1,7 @@
-package main.discozoosolver;
+package discozoosolver;
 
-import main.ui.BoardDisplay;
-import main.ui.SolverApp;
+import ui.BoardDisplay;
+import ui.SolverApp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,14 +66,14 @@ public class Board {
     /**
      * @return the cell located at (x, y)
      */
-    public Cell getCell(int x, int y) {
+    private Cell getCell(int x, int y) {
         return cells.get(y * Constants.BOARD_SIZE + x);
     }
 
     /**
      * Creates BOARD_SIZE x BOARD_SIZE empty cells and add them to cells.
      */
-    public void createCells() {
+    private void createCells() {
         for (int y = 0; y < Constants.BOARD_SIZE; y++) {
             for (int x = 0; x < Constants.BOARD_SIZE; x++) {
                 Cell cell = new Cell(x, y, solver);
@@ -121,7 +121,7 @@ public class Board {
         processCells();
     }
 
-    public void processCells() {
+    private void processCells() {
         generateCellContents();
         checkForKnownCells();
     }
@@ -129,7 +129,7 @@ public class Board {
     /**
      * Sets the count of possible candidates and the list of animals which could be in each cell.
      */
-    public void generateCellContents() {
+    private void generateCellContents() {
         resetCounts();
         resetAnimalsInCells();
         for (Candidate candidate : candidates) {
@@ -235,7 +235,7 @@ public class Board {
         processCells();
     }
 
-    public void setFinalised(Block block) {
+    private void setFinalised(Block block) {
         Cell cell = getCell(block.x(), block.y());
         cell.setFinalised(true);
         cell.setKnown(false);
@@ -279,7 +279,7 @@ public class Board {
         animals = new ArrayList<>();
     }
 
-    public void updatePriorities() {
+    private void updatePriorities() {
         int maxCount = 0;
         for (Cell cell : cells) {
             if (!(cell.getFinalised() || cell.getKnown())) {

@@ -1,11 +1,11 @@
-package main.ui;
+package ui;
 
+import discozoosolver.Cell;
+import discozoosolver.Constants;
 import javafx.event.Event;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import main.discozoosolver.Cell;
-import main.discozoosolver.Constants;
 
 import java.io.File;
 import java.util.List;
@@ -22,7 +22,7 @@ public class CellDisplay {
         this.cell = cell;
     }
 
-    public GridPane getContents() {
+    GridPane getContents() {
         return contents;
     }
 
@@ -38,14 +38,14 @@ public class CellDisplay {
         // System.out.println(cell.getX() + ", " + cell.getY() + " " + cell.getCount() + " " + cell.getPriority());
     }
 
-    public void renderKnown() {
+    private void renderKnown() {
         List<String> animals = cell.getAnimals();
         ImageView iv = createImageView(animals.get(0));
         contents.add(iv, 0, 0);
         contents.setStyle("-fx-background-color: #ffc107;");
     }
 
-    public void renderFinalised() {
+    private void renderFinalised() {
         List<String> animals = cell.getAnimals();
         String filename;
         if (animals.size() == 0) {
@@ -59,7 +59,7 @@ public class CellDisplay {
         contents.add(iv, 0, 0);
     }
 
-    public void renderAnimals() {
+    private void renderAnimals() {
         List<String> animals = cell.getAnimals();
         for (int i = 0; i < animals.size(); i++) {
             String animal = animals.get(i);
