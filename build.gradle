@@ -5,6 +5,9 @@ apply plugin: 'application'
 mainClassName = 'ui.SolverApp'
 
 jar {
+    manifest {
+        attributes 'Main-Class': 'ui.SolverApp'
+    }
     baseName = 'Disco Zoo Solver'
     version = '0.1.0'
 }

@@ -7,7 +7,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
-import java.io.File;
 import java.util.List;
 
 public class CellDisplay {
@@ -84,7 +83,8 @@ public class CellDisplay {
         }
         String path = (filename.equals(Constants.BLANK_DARK) ? String.format("elements/%s.png", filename) : String
                 .format("animals/%s.png", filename));
-        Image image = new Image(new File("./src/main/resources/" + path).toURI().toString());
+        ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+        Image image = new Image(classLoader.getResourceAsStream(path));
 
         ImageView iv = new ImageView();
         iv.setImage(image);

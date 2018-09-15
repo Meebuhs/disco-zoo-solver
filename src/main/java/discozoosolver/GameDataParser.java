@@ -9,7 +9,6 @@ import org.xml.sax.SAXParseException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -23,7 +22,8 @@ public class GameDataParser {
         try {
             DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-            Document doc = docBuilder.parse(new File("./src/main/resources/data.xml"));
+            ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+            Document doc = docBuilder.parse(classLoader.getResourceAsStream("data.xml"));
 
             NodeList locationNodes = doc.getElementsByTagName("LOCATION");
 
