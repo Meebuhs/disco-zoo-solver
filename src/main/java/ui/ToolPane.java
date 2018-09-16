@@ -122,36 +122,15 @@ class ToolPane {
         if (clickedButton.isSelected()) {
             numberSelected++;
             selectedAnimals.add(clickedAnimal);
-            setButtonStates(true);
         } else {
             numberSelected--;
             selectedAnimals.remove(clickedAnimal);
-            setButtonStates(false);
         }
+        setStartState();
     }
 
-    private void setButtonStates(boolean animalAdded) {
-        if (animalAdded) {
-            if (numberSelected == 3) {
-                for (ToggleButton button : animalButtons) {
-                    if (!(button.isSelected())) {
-                        button.setDisable(true);
-                    }
-                }
-            } else if (numberSelected == 1) {
-                startButton.setDisable(false);
-            }
-        } else {
-            if (numberSelected == 2) {
-                for (ToggleButton button : animalButtons) {
-                    if (button.isDisable()) {
-                        button.setDisable(false);
-                    }
-                }
-            } else if (numberSelected == 0) {
-                startButton.setDisable(true);
-            }
-        }
+    private void setStartState() {
+        startButton.setDisable(!(numberSelected > 0 && numberSelected <= 3));
     }
 
     private void startGame() {
