@@ -34,7 +34,7 @@ class ToolPane {
         this.numberSelected = 0;
         initialiseAnimalButtons(locationDropdown.getSelectionModel().getSelectedItem());
         this.toolBar = new ToolBar(createAnimalSelection(), new Separator());
-        this.toolBar.setPrefHeight(40);
+        this.toolBar.setPrefHeight(70);
     }
 
     private ComboBox<String> createLocationDropdown() {
@@ -42,7 +42,7 @@ class ToolPane {
 
         ComboBox<String> locationDropdown = new ComboBox<>();
 
-        locationDropdown.setPrefHeight(50);
+        locationDropdown.setPrefHeight(55);
         locationDropdown.setPrefWidth(150);
 
         locationDropdown.setItems(locationOptions);
@@ -56,7 +56,7 @@ class ToolPane {
 
     private Button createStartButton() {
         Button startButton = new Button();
-        startButton.setPrefHeight(50);
+        startButton.setPrefHeight(55);
         startButton.setText("Start Game");
         startButton.setDisable(true);
         startButton.setOnAction((ActionEvent event) -> startGame());
@@ -89,7 +89,7 @@ class ToolPane {
             imageView.setSmooth(true);
             imageView.setCache(true);
             button.setGraphic(imageView);
-            button.setPrefSize(45, 45);
+            button.setPrefSize(55, 55);
         }
         resetSelectedButtons();
     }

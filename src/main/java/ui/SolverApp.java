@@ -1,6 +1,10 @@
 package ui;
 
-import discozoosolver.*;
+import discozoosolver.Animal;
+import discozoosolver.Block;
+import discozoosolver.Board;
+import discozoosolver.GameDataParser;
+import discozoosolver.Location;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -33,7 +37,7 @@ public class SolverApp extends Application {
         StatusPane statusPane = new StatusPane();
         OptionMenu optionMenu = new OptionMenu();
         BoardDisplay boardDisplay = board.getBoardDisplay();
-        BorderPane.setMargin(boardDisplay.getDisplay(), new Insets(95, 45, 95, 45));
+        BorderPane.setMargin(boardDisplay.getDisplay(), new Insets(75, 45, 75, 45));
         console = new Console();
 
         border.setTop(toolPane.getToolBar());
