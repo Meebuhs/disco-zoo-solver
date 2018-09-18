@@ -21,7 +21,7 @@ public class Animal {
      * @param name Name of the animal
      * @param pattern Pattern of the animal
      */
-    Animal(String name, Pattern pattern) {
+    public Animal(String name, Pattern pattern) {
         this.name = name;
         this.pattern = pattern;
     }
@@ -34,14 +34,17 @@ public class Animal {
     }
 
     /**
+     * Returns the animal's pattern.
+     *
      * @return the pattern of the animal.
      */
-    Pattern getPattern() {
+    public Pattern getPattern() {
         return pattern;
     }
 
     /**
      * Calls the pattern's getSize method.
+     *
      * @return the number of tiles occupied by the animal.
      */
     public int getSize() {

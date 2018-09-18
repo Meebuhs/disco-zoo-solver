@@ -29,6 +29,7 @@ public class Board {
 
     /**
      * Create a new board. Initialised as a BOARD_SIZE x BOARD_SIZE grid of empty cells.
+     *
      * @param solver The solver which controls game state.
      */
     public Board(SolverApp solver) {
@@ -42,18 +43,19 @@ public class Board {
     }
 
     /**
-     * Set the current game location.
-     * @param location the location to set.
-     */
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    /**
      * @return the current game location.
      */
     public String getLocation() {
         return location;
+    }
+
+    /**
+     * Set the current game location.
+     *
+     * @param location the location to set.
+     */
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     /**
@@ -71,7 +73,7 @@ public class Board {
     }
 
     /**
-     * Creates BOARD_SIZE x BOARD_SIZE empty cells and add them to cells.
+     * Creates BOARD_SIZE x BOARD_SIZE empty cells and add them to the list of cells.
      */
     private void createCells() {
         for (int y = 0; y < Constants.BOARD_SIZE; y++) {
@@ -98,6 +100,7 @@ public class Board {
 
     /**
      * Add an animal to the current list of animals.
+     *
      * @param animal the animal to add.
      */
     public void addAnimal(Animal animal) {

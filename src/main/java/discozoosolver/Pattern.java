@@ -7,7 +7,7 @@ public class Pattern {
     private int height;
     private int width;
 
-    Pattern(List<Block> blocks) {
+    public Pattern(List<Block> blocks) {
         this.blocks = blocks;
         height = 1;
         width = 1;

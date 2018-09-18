@@ -1,12 +1,14 @@
 package discozoosolver;
 
-/** Simple class which represents a block at coordinates (x, y) */
+/**
+ * Simple pair-like class which represents a block at coordinates (x, y)
+ */
 public class Block {
     private int x;
     private int y;
 
     /** Creates a new block. */
-    Block(int x, int y) {
+    public Block(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -14,14 +16,14 @@ public class Block {
     /**
      * @return the x coordinate of the block.
      */
-    int x() {
+    public int x() {
         return x;
     }
 
     /**
      * @return the y coordinate of the block.
      */
-    int y() {
+    public int y() {
         return y;
     }
 
@@ -34,7 +36,8 @@ public class Block {
     }
 
     /**
-     * Two blocks are equal if the x and y coordinates are equal.
+     * Returns whether two blocks are equal. They are considered equal if the x and y coordinates are equal.
+     *
      * @param other The block to compare to.
      * @return true if the two blocks are equivalent.
      */
