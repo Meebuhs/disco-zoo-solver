@@ -30,8 +30,7 @@ class AnimalTest {
     void testGettersAndSetters() {
         assertAll(
                 () -> assertEquals(zebra.getName(), "Zebra"),
-                () -> assertEquals(zebra.getPattern(), pattern),
-                () -> assertEquals(zebra.getSize(), 4)
+                () -> assertEquals(zebra.getPattern(), pattern)
         );
     }
 }
