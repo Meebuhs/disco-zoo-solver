@@ -12,8 +12,8 @@ package discozoosolver;
  * </p>
  */
 public class Animal {
-    private String name;
-    private Pattern pattern;
+    private final String name;
+    private final Pattern pattern;
 
     /**
      * Creates a new animal.
@@ -34,26 +34,12 @@ public class Animal {
     }
 
     /**
-     * Returns the animal's pattern.
-     *
      * @return the pattern of the animal.
      */
     public Pattern getPattern() {
         return pattern;
     }
 
-    /**
-     * Calls the pattern's getSize method.
-     *
-     * @return the number of tiles occupied by the animal.
-     */
-    public int getSize() {
-        return pattern.getSize();
-    }
-
-    /**
-     * @return the string representation of the animal.
-     */
     @Override
     public String toString() {
         return name;

@@ -43,7 +43,7 @@ public class Cell {
         return count;
     }
 
-    void resetCount() {
+    void clearCount() {
         this.count = 0;
     }
 

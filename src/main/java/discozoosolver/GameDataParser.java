@@ -17,6 +17,12 @@ import java.util.Map;
 import static java.lang.Integer.parseInt;
 
 public class GameDataParser {
+    /**
+     * Parses the game data stored in resources/data.xml. Outlined in this document is the list of locations, the
+     * animals which can be found in each location and the pattern for each animal.
+     *
+     * @return The game data map of locations.
+     */
     public static Map<String, Location> parseData() {
         Map<String, Location> locations = new LinkedHashMap<>();
         try {
@@ -66,9 +72,17 @@ public class GameDataParser {
         } catch (Throwable t) {
             t.printStackTrace();
         }
-    return locations;
+        return locations;
     }
 
+    /**
+     * Takes an input string of space separated coordinates in the format (x1 y1) (x2 y2) ... (xn yn) and returns a
+     * Pattern object with those positions. This method assumes the input is well-formed and contains no logic for
+     * asserting this is the case.
+     *
+     * @param input The input string of coordinates.
+     * @return A pattern object of the input positions.
+     */
     private static Pattern createPattern(String input) {
         String[] coords = input.split("\\s+(?=\\()");
         List<Block> blocks = new ArrayList<>();

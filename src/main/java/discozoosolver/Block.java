@@ -1,11 +1,11 @@
 package discozoosolver;
 
 /**
- * Simple pair-like class which represents a block at coordinates (x, y)
+ * Simple immutable pair-like class which represents a block at coordinates (x, y).
  */
 public class Block {
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
     /** Creates a new block. */
     public Block(int x, int y) {
@@ -28,15 +28,7 @@ public class Block {
     }
 
     /**
-     * @return the string representation of the block.
-     */
-    @Override
-    public String toString() {
-        return "(" + x + ", " + y + ")";
-    }
-
-    /**
-     * Returns whether two blocks are equal. They are considered equal if the x and y coordinates are equal.
+     * Returns whether two blocks are equal. They are considered equal if their x and y coordinates are equal.
      *
      * @param other The block to compare to.
      * @return true if the two blocks are equivalent.
@@ -52,4 +44,10 @@ public class Block {
         Block b = (Block) other;
         return x == b.x() && y == b.y();
     }
+
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
+
 }
