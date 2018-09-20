@@ -111,6 +111,9 @@ public class Board {
             }
         }
         processCells();
+        for (Cell cell : this.cells) {
+            cell.checkIfEmpty();
+        }
     }
 
     /**
