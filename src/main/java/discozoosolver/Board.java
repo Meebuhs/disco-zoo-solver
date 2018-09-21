@@ -111,9 +111,6 @@ public class Board {
             }
         }
         processCells();
-        for (Cell cell : this.cells) {
-            cell.checkIfEmpty();
-        }
     }
 
     /**
@@ -122,6 +119,9 @@ public class Board {
     private void processCells() {
         generateCellContents();
         checkForKnownCells();
+        for (Cell cell : this.cells) {
+            cell.checkIfEmpty();
+        }
     }
 
     /**
@@ -290,6 +290,13 @@ public class Board {
         for (Cell cell : cells) {
             cell.resetCell();
         }
+    }
+
+    /**
+     * @return The list of candidates.
+     */
+    public List<Candidate> getCandidates() {
+        return candidates;
     }
 
     /**
