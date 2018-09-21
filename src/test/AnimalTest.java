@@ -29,8 +29,8 @@ class AnimalTest {
     @Test
     void testGettersAndSetters() {
         assertAll(
-                () -> assertEquals(zebra.getName(), "Zebra"),
-                () -> assertEquals(zebra.getPattern(), pattern)
+                () -> assertEquals(zebra.getName(), "Zebra", "Animal.getName returns the wrong name."),
+                () -> assertEquals(zebra.getPattern(), pattern, "Animal.getPattern returns the wrong pattern")
         );
     }
 }

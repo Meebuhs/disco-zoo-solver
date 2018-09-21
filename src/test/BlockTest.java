@@ -22,10 +22,16 @@ class BlockTest {
     @Test
     void testGettersAndSetters() {
         assertAll(
-                () -> assertEquals(testBlock1.x(), 1),
-                () -> assertEquals(testBlock2.y(), 2),
-                () -> assertEquals(testBlock1, testBlock2),
-                () -> assertNotEquals(testBlock1, testBlock3)
+                () -> assertEquals(testBlock1.x(), 1, "Block.x returns the wrong value"),
+                () -> assertEquals(testBlock2.y(), 2, "Block.y returns the wrong value")
+        );
+    }
+
+    @Test
+    void testEquality() {
+        assertAll(
+                () -> assertEquals(testBlock1, testBlock2, "Blocks (1, 2) and (1, 2) should be equal"),
+                () -> assertNotEquals(testBlock1, testBlock3, "Blocks (1, 2) and (-1, -2) should not be equal")
         );
     }
 }

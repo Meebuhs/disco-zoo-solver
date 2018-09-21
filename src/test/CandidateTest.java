@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CandidateTest {
 
-    static private Pattern pattern;
     static private Animal cockatoo;
     static private List<Block> position;
     static private Candidate candidate;
@@ -24,7 +23,7 @@ class CandidateTest {
         cockatooBlocks.add(new Block(0, 0));
         cockatooBlocks.add(new Block(1, 1));
         cockatooBlocks.add(new Block(1, 2));
-        pattern = new Pattern(cockatooBlocks);
+        Pattern pattern = new Pattern(cockatooBlocks);
         cockatoo = new Animal("Zebra", pattern);
 
         position = new ArrayList<>();
@@ -37,8 +36,8 @@ class CandidateTest {
     @Test
     void testGettersAndSetters() {
         assertAll(
-                () -> assertEquals(candidate.getAnimal(), cockatoo),
-                () -> assertEquals(candidate.getPosition(), position)
+                () -> assertEquals(candidate.getAnimal(), cockatoo, "Candidate.getAnimal returns incorrect value"),
+                () -> assertEquals(candidate.getPosition(), position, "Candidate.getPosition returns incorrect value")
         );
     }
 }
