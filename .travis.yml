@@ -17,3 +17,11 @@ cache:
   directories:
   - $HOME/.gradle/caches/
   - $HOME/.gradle/wrapper/
+  - $HOME/.sonar/cache
+
+addons:
+  sonarcloud:
+    organization: "meebuhs-github"
+
+script:
+- ./gradlew sonarqube -Dsonar.login=${SONAR.TOKEN}

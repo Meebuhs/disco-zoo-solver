@@ -2,6 +2,7 @@ plugins {
     id 'idea'
     id 'java'
     id 'application'
+    id 'org.sonarqube' version '2.6'
 }
 
 repositories {
@@ -46,6 +47,14 @@ test {
                     "${result.failedTestCount} failed, " +
                     "${result.skippedTestCount} skipped"
         }
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "Meebuhs_disco-zoo-solver"
+        property "sonar.organization", "meebuhs-github"
+        property "sonar.host.url", "https://sonarcloud.io"
     }
 }
 
