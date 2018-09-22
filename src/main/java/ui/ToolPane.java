@@ -16,7 +16,10 @@ import javafx.scene.layout.HBox;
 import java.util.ArrayList;
 import java.util.List;
 
-class ToolPane {
+/**
+ * Display class for the toolpane which handles the location and animal selection.
+ */
+public class ToolPane {
     private SolverApp solver;
     private ToolBar toolBar;
     private ComboBox<String> locationDropdown;
@@ -25,7 +28,12 @@ class ToolPane {
     private List<String> selectedAnimals;
     private Button startButton;
 
-    ToolPane(SolverApp solver) {
+    /**
+     * Sole constructor for the toolpane. Initialises the location dropdown, animal toggles and start game button.
+     *
+     * @param solver The solver connected to this toolpane. Used to trigger the game start
+     */
+    public ToolPane(SolverApp solver) {
         this.solver = solver;
         this.locationDropdown = createLocationDropdown();
         this.startButton = createStartButton();
@@ -37,16 +45,21 @@ class ToolPane {
         this.toolBar.setPrefHeight(70);
     }
 
+    /**
+     * Creates the location dropdown. This dropdown is a combobox populated with the location list from the solver.
+     * Choosing a location from the dropdown triggers an update for the animal selection buttons.
+     *
+     * @return The location dropdown ComboBox element.
+     */
     private ComboBox<String> createLocationDropdown() {
-        ObservableList<String> locationOptions = FXCollections.observableArrayList(solver.getLocationList());
-
         ComboBox<String> dropdown = new ComboBox<>();
+
+        ObservableList<String> locationOptions = FXCollections.observableArrayList(solver.getLocationList());
+        dropdown.setItems(locationOptions);
+        dropdown.getSelectionModel().selectFirst();
 
         dropdown.setPrefHeight(55);
         dropdown.setPrefWidth(150);
-
-        dropdown.setItems(locationOptions);
-        dropdown.getSelectionModel().selectFirst();
 
         dropdown.setOnAction((ActionEvent event) ->
                 updateAnimalOptions(dropdown.getSelectionModel().getSelectedItem()));
@@ -54,6 +67,9 @@ class ToolPane {
         return dropdown;
     }
 
+    /**
+     * @return The start button which triggers the start of a new game.
+     */
     private Button createStartButton() {
         Button button = new Button();
         button.setPrefHeight(55);

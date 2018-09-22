@@ -4,31 +4,50 @@ import discozoosolver.Board;
 import discozoosolver.Cell;
 import javafx.scene.layout.GridPane;
 
+/**
+ * Display class which contains the grid of cells.
+ */
 public class BoardDisplay {
     private GridPane display;
     private Board board;
 
+    /**
+     * Sole constructor for the BoardDisplay. Populates the grid with the cells from the provided board to the grid.
+     *
+     * @param board The board for which to create a display.
+     */
     public BoardDisplay(Board board) {
         this.board = board;
-        createDisplay();
-        this.display = getDisplay();
+        this.display = createDisplay();
     }
 
-    private void createDisplay() {
+    /**
+     * Creates and populates a gridpane and returns it. The contents of each cell's display are placed in their
+     * respective cell of the grid.
+     *
+     * @return The gridpane display element.
+     */
+    private GridPane createDisplay() {
         GridPane gridPane = new GridPane();
         gridPane.setGridLinesVisible(true);
         for (Cell cell : board.getCells()) {
             gridPane.add(cell.getDisplay().getContents(), cell.getX(), cell.getY());
         }
-        this.display = gridPane;
+        return gridPane;
     }
 
+    /**
+     * Updates the display for each cell.
+     */
     public void updateDisplay() {
         for (Cell cell : board.getCells()) {
             cell.updateDisplay();
         }
     }
 
+    /**
+     * @return The display element.
+     */
     GridPane getDisplay() {
         return display;
     }
