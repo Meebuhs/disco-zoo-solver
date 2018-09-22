@@ -24,4 +24,4 @@ addons:
     organization: "meebuhs-github"
 
 script:
-- ./gradlew sonarqube -Dsonar.login=${SONAR.TOKEN}
+- ./gradlew sonarqube -Dsonar.login=$SONAR_TOKEN
