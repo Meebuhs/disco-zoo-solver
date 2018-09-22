@@ -56,7 +56,7 @@ public class Cell {
      * @param animal The animal which was hit.
      */
     public void confirmHit(String animal) {
-        System.out.println(animal + " hit at " + x + ", " + y);
+        solver.setConsole(animal + " hit at " + x + ", " + y);
         solver.confirmHit(new Block(x, y), animal);
     }
 
@@ -64,7 +64,7 @@ public class Cell {
      * Confirms a miss for this cell in the solver.
      */
     public void confirmMiss() {
-        System.out.println("Miss at " + x + ", " + y);
+        solver.setConsole("Miss at " + x + ", " + y);
         solver.confirmMiss(new Block(x, y));
     }
 
@@ -142,7 +142,7 @@ public class Cell {
      * Sets the cell to finalised if the set of discoverable animals is empty.
      */
     public void checkIfEmpty() {
-        if (animals.size() == 0) {
+        if (animals.isEmpty()) {
             this.finalised = true;
         }
     }

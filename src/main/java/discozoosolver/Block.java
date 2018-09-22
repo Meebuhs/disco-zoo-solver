@@ -46,6 +46,11 @@ public class Block {
     }
 
     @Override
+    public int hashCode() {
+        return 37 * this.x + 53 * this.y;
+    }
+
+    @Override
     public String toString() {
         return "(" + x + ", " + y + ")";
     }

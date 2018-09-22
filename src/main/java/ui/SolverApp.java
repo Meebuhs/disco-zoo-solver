@@ -65,7 +65,6 @@ public class SolverApp extends Application {
             board.addAnimal(locations.get(location).getAnimal(animal));
         }
         board.generateCandidates();
-        board.printPositions();
         updateBoardDisplay();
     }
 
@@ -73,11 +72,6 @@ public class SolverApp extends Application {
         Location location = locations.get(name);
         List<Animal> animals = location.getAnimals();
         return animals.stream().map(Animal::getName).collect(Collectors.toList());
-    }
-
-    private void addAnimal(String location, String name) {
-        Animal animal = locations.get(location).getAnimal(name);
-        board.addAnimal(animal);
     }
 
     public void confirmHit(Block block, String animal) {

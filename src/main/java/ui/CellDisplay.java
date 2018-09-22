@@ -34,7 +34,6 @@ public class CellDisplay {
         } else {
             renderAnimals();
         }
-        // System.out.println(cell.getX() + ", " + cell.getY() + " " + cell.getCount() + " " + cell.getPriority());
     }
 
     private void renderKnown() {
@@ -47,7 +46,7 @@ public class CellDisplay {
     private void renderFinalised() {
         List<String> animals = cell.getAnimals();
         String filename;
-        if (animals.size() == 0) {
+        if (animals.isEmpty()) {
             // Empty
             filename = Constants.BLANK_DARK;
         } else {

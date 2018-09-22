@@ -13,10 +13,17 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static java.lang.Integer.parseInt;
 
 public class GameDataParser {
+
+    private GameDataParser() {
+        throw new IllegalStateException("Class should not be instatiated");
+    }
+
     /**
      * Parses the game data stored in resources/data.xml. Outlined in this document is the list of locations, the
      * animals which can be found in each location and the pattern for each animal.
@@ -24,6 +31,8 @@ public class GameDataParser {
      * @return The game data map of locations.
      */
     public static Map<String, Location> parseData() {
+        Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+        logger.setLevel(Level.INFO);
         Map<String, Location> locations = new LinkedHashMap<>();
         try {
             DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -35,42 +44,39 @@ public class GameDataParser {
 
             for (int i = 0; i < locationNodes.getLength(); i++) {
                 Node locationNode = locationNodes.item(i);
-                if (locationNode.getNodeType() == Node.ELEMENT_NODE) {
-                    Element locationElement = (Element) locationNode;
-                    Element locationNameElement = (Element) locationElement.getElementsByTagName("NAME").item(0);
-                    String locationName = locationNameElement.getChildNodes().item(0).getNodeValue().trim();
-                    NodeList animalNodes = locationElement.getElementsByTagName("ANIMAL");
+                Element locationElement = (Element) locationNode;
+                Element locationNameElement = (Element) locationElement.getElementsByTagName("NAME").item(0);
+                String locationName = locationNameElement.getChildNodes().item(0).getNodeValue().trim();
+                NodeList animalNodes = locationElement.getElementsByTagName("ANIMAL");
 
-                    List<Animal> animals = new ArrayList<>();
-                    for (int j = 0; j < animalNodes.getLength(); j++) {
-                        Node animalNode = animalNodes.item(j);
-                        if (animalNode.getNodeType() == Node.ELEMENT_NODE) {
-                            Element animalElement = (Element) animalNode;
-                            Element nameElement = (Element) animalElement.getElementsByTagName("NAME").item(0);
-                            String animalName = nameElement.getChildNodes().item(0).getNodeValue().trim();
+                List<Animal> animals = new ArrayList<>();
+                for (int j = 0; j < animalNodes.getLength(); j++) {
+                    Node animalNode = animalNodes.item(j);
+                    Element animalElement = (Element) animalNode;
+                    Element nameElement = (Element) animalElement.getElementsByTagName("NAME").item(0);
+                    String animalName = nameElement.getChildNodes().item(0).getNodeValue().trim();
 
-                            Element patternElement = (Element) animalElement.getElementsByTagName("PATTERN").item(0);
-                            Pattern animalPattern = createPattern(patternElement.getChildNodes().item(0).getNodeValue().trim());
+                    Element patternElement = (Element) animalElement.getElementsByTagName("PATTERN").item(0);
+                    Pattern animalPattern = createPattern(patternElement.getChildNodes().item(0).getNodeValue().trim());
 
-                            Animal animal = new Animal(animalName, animalPattern);
-                            animals.add(animal);
-                        }
-                    }
-                    Location location = new Location(locationName, animals);
-                    locations.put(locationName, location);
+                    Animal animal = new Animal(animalName, animalPattern);
+                    animals.add(animal);
                 }
+                Location location = new Location(locationName, animals);
+                locations.put(locationName, location);
+
             }
         } catch (SAXParseException err) {
-            System.out.println("** Parsing error" + ", line "
-                    + err.getLineNumber() + ", uri " + err.getSystemId());
-            System.out.println(" " + err.getMessage());
-
+            logger.log(Level.ALL, err.getMessage(), err);
         } catch (SAXException e) {
             Exception x = e.getException();
-            ((x == null) ? e : x).printStackTrace();
-
-        } catch (Throwable t) {
-            t.printStackTrace();
+            if (x != null) {
+                logger.log(Level.ALL, x.getMessage(), x);
+            } else {
+                logger.log(Level.ALL, e.getMessage(), e);
+            }
+        } catch (Exception e) {
+            logger.log(Level.INFO, e.getMessage(), e);
         }
         return locations;
     }

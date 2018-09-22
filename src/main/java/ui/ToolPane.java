@@ -40,27 +40,27 @@ class ToolPane {
     private ComboBox<String> createLocationDropdown() {
         ObservableList<String> locationOptions = FXCollections.observableArrayList(solver.getLocationList());
 
-        ComboBox<String> locationDropdown = new ComboBox<>();
+        ComboBox<String> dropdown = new ComboBox<>();
 
-        locationDropdown.setPrefHeight(55);
-        locationDropdown.setPrefWidth(150);
+        dropdown.setPrefHeight(55);
+        dropdown.setPrefWidth(150);
 
-        locationDropdown.setItems(locationOptions);
-        locationDropdown.getSelectionModel().selectFirst();
+        dropdown.setItems(locationOptions);
+        dropdown.getSelectionModel().selectFirst();
 
-        locationDropdown.setOnAction((ActionEvent event) ->
-                updateAnimalOptions(locationDropdown.getSelectionModel().getSelectedItem()));
+        dropdown.setOnAction((ActionEvent event) ->
+                updateAnimalOptions(dropdown.getSelectionModel().getSelectedItem()));
 
-        return locationDropdown;
+        return dropdown;
     }
 
     private Button createStartButton() {
-        Button startButton = new Button();
-        startButton.setPrefHeight(55);
-        startButton.setText("Start Game");
-        startButton.setDisable(true);
-        startButton.setOnAction((ActionEvent event) -> startGame());
-        return startButton;
+        Button button = new Button();
+        button.setPrefHeight(55);
+        button.setText("Start Game");
+        button.setDisable(true);
+        button.setOnAction((ActionEvent event) -> startGame());
+        return button;
     }
 
     private void initialiseAnimalButtons(String location) {
@@ -92,6 +92,7 @@ class ToolPane {
             button.setPrefSize(55, 55);
         }
         resetSelectedButtons();
+        setStartState();
     }
 
     private void resetSelectedButtons() {

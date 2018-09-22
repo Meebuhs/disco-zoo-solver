@@ -31,21 +31,21 @@ public class Board {
         candidates = new ArrayList<>();
         animals = new ArrayList<>();
         this.cells = createCells();
-        this.boardDisplay = new BoardDisplay(solver, this);
+        this.boardDisplay = new BoardDisplay(this);
     }
 
     /**
      * @return a list of BOARD_SIZE x BOARD_SIZE empty cells.
      */
     private List<Cell> createCells() {
-        List<Cell> cells = new ArrayList<>();
+        List<Cell> newCells = new ArrayList<>();
         for (int y = 0; y < Constants.BOARD_SIZE; y++) {
             for (int x = 0; x < Constants.BOARD_SIZE; x++) {
                 Cell cell = new Cell(x, y, solver);
-                cells.add(cell);
+                newCells.add(cell);
             }
         }
-        return cells;
+        return newCells;
     }
 
     /**
@@ -175,39 +175,67 @@ public class Board {
             changesMade = false;
 
             for (Animal animal : animals) {
-                List<Candidate> options = new ArrayList<>();
                 String name = animal.getName();
-                for (Candidate candidate : candidates) {
-                    if (candidate.getAnimal().getName().equals(name)) {
-                        options.add(candidate);
-                    }
-                }
+                List<Candidate> options = getCandidatesForAnimal(name);
 
                 if (options.size() == 1) {
                     // Case 1 - Set candidate to be known
                     changesMade = setKnownCandidate(options.get(0));
                 } else {
-                    // Compare each block in the first candidate against each other candidate. If a block is contained
-                    // by every candidate, it must be in the first so we only need to check these.
-                    Candidate firstCandidate = options.get(0);
-                    for (Block block : firstCandidate.getPosition()) {
-                        boolean known = true;
-                        for (Candidate candidate : options) {
-                            if (!(candidate.getPosition().contains(block))) {
-                                known = false;
-                            }
-                        }
-                        if (known) {
-                            // Case 2 - Set the block to be known
-                            changesMade = setKnownBlock(block, firstCandidate.getAnimal().getName());
-                        }
-                    }
+                    // Check case 2
+                    changesMade = checkForKnownBlock(options);
                 }
             }
         }
 
         generateCellContents();
         updatePriorities();
+    }
+
+    /**
+     * Returns a list of the current candidates for a given animal.
+     *
+     * @param animal The animal for which to retrieve possible candidates.
+     * @return The list of potential candidates.
+     */
+    private List<Candidate> getCandidatesForAnimal(String animal) {
+        List<Candidate> options = new ArrayList<>();
+
+        for (Candidate candidate : candidates) {
+            if (candidate.getAnimal().getName().equals(animal)) {
+                options.add(candidate);
+            }
+        }
+
+        return options;
+    }
+
+    /**
+     * Checks if there is a block which is common to every candidate and sets it to known.
+     *
+     * @param options The list of potential candidates for an animal.
+     * @return true if any changes are made.
+     */
+    private boolean checkForKnownBlock(List<Candidate> options) {
+        boolean changesMade = false;
+        Candidate firstCandidate = options.get(0);
+
+        // Compare each block in the first candidate against each other candidate. If a block is contained
+        // by every candidate, it must be in the first so we only need to check these.
+        for (Block block : firstCandidate.getPosition()) {
+            boolean known = true;
+            for (Candidate candidate : options) {
+                if (!(candidate.getPosition().contains(block))) {
+                    known = false;
+                    break;
+                }
+            }
+            if (known) {
+                // Case 2 - Set the block to be known
+                changesMade = setKnownBlock(block, firstCandidate.getAnimal().getName());
+            }
+        }
+        return changesMade;
     }
 
     /**
@@ -362,25 +390,5 @@ public class Board {
      */
     public BoardDisplay getBoardDisplay() {
         return boardDisplay;
-    }
-
-    /**
-     * Prints the current count for each cell. Useful for debugging.
-     */
-    public void printCount() {
-        StringBuilder sb = new StringBuilder();
-        for (Cell cell : cells) {
-            sb.append(cell.getCount());
-            sb.append(" ");
-        }
-        sb.append("\n");
-        System.out.println(sb.toString());
-    }
-
-    /**
-     * Prints the current candidates. Useful for debugging.
-     */
-    public void printPositions() {
-        System.out.println(candidates);
     }
 }
