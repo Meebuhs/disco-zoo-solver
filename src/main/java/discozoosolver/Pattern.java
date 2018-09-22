@@ -68,6 +68,6 @@ public class Pattern {
 
     @Override
     public String toString() {
-        return("main.discozoosolver.Pattern: " + blocks.toString());
+        return ("Pattern: " + blocks.toString());
     }
 }

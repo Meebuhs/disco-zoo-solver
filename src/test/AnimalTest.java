@@ -33,4 +33,9 @@ class AnimalTest {
                 () -> assertEquals(zebra.getPattern(), pattern, "Animal.getPattern returns the wrong pattern")
         );
     }
+
+    @Test
+    void testToString() {
+        assertEquals(zebra.toString(), "Zebra");
+    }
 }

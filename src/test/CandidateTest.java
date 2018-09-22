@@ -24,7 +24,7 @@ class CandidateTest {
         cockatooBlocks.add(new Block(1, 1));
         cockatooBlocks.add(new Block(1, 2));
         Pattern pattern = new Pattern(cockatooBlocks);
-        cockatoo = new Animal("Zebra", pattern);
+        cockatoo = new Animal("Cockatoo", pattern);
 
         position = new ArrayList<>();
         position.add(new Block(0, 0));
@@ -39,5 +39,10 @@ class CandidateTest {
                 () -> assertEquals(candidate.getAnimal(), cockatoo, "Candidate.getAnimal returns incorrect value"),
                 () -> assertEquals(candidate.getPosition(), position, "Candidate.getPosition returns incorrect value")
         );
+    }
+
+    @Test
+    void testToString() {
+        assertEquals(candidate.toString(), "Cockatoo: [(0, 0), (1, 1), (1, 2)]");
     }
 }

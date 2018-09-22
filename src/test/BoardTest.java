@@ -13,6 +13,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -125,6 +126,11 @@ class BoardTest {
                 () -> assertTrue(board.getCells().get(8).getKnown(), "Only one candidate remains for Coyote, cell should be known"),
                 () -> assertTrue(board.getCells().get(14).getKnown(), "Only one candidate remains for Coyote, cell should be known")
         );
+    }
+
+    @Test
+    void testBoardDisplay() {
+        assertNotNull(board.getBoardDisplay());
     }
 
     private void setUpMultipleCandidateTest() {

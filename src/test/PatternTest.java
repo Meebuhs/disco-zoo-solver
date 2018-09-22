@@ -27,10 +27,15 @@ class PatternTest {
     @Test
     void testGettersAndSetters() {
         assertAll(
-                () -> assertEquals(pattern.getBlocks(), blocks),
-                () -> assertEquals(pattern.getHeight(), 3),
-                () -> assertEquals(pattern.getWidth(), 3),
-                () -> assertEquals(pattern.getSize(), 4)
+                () -> assertEquals(pattern.getBlocks(), blocks, "Pattern.getBlocks returns the incorrect value"),
+                () -> assertEquals(pattern.getHeight(), 3, "Pattern.getHeight returns the incorrect value"),
+                () -> assertEquals(pattern.getWidth(), 3, "Pattern.getWidth returns the incorrect value"),
+                () -> assertEquals(pattern.getSize(), 4, "Pattern.getSize returns the incorrect value")
         );
+    }
+
+    @Test
+    void testToString() {
+        assertEquals(pattern.toString(), "Pattern: [(0, 1), (1, 1), (2, 0), (2, 2)]");
     }
 }

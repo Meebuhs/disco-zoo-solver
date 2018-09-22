@@ -26,23 +26,28 @@ class LocationTest {
         List<Block> blocks = new ArrayList<>();
         blocks.add(block);
         animals = new ArrayList<>();
-        animals.add(new Animal("Penguin", new Pattern(blocks)));
         seal = new Animal("Seal", new Pattern(blocks));
         animals.add(seal);
+        animals.add(new Animal("Penguin", new Pattern(blocks)));
         location = new Location("Polar", animals);
     }
 
     @Test
     void testGettersAndSetters() {
         assertAll(
-                () -> assertEquals(location.getName(), "Polar"),
-                () -> assertEquals(location.getAnimals(), animals)
+                () -> assertEquals(location.getName(), "Polar", "Location.getName is returning the wrong value"),
+                () -> assertEquals(location.getAnimals(), animals, "Location.getAnimals is returning the wrong value")
         );
     }
 
     @Test
     void testGetAnimal() {
         assertThrows(NoSuchElementException.class, () -> location.getAnimal("Kangaroo"), "Kangaroo does not exist in Polar");
-        assertEquals(location.getAnimal("Seal"), seal);
+        assertEquals(location.getAnimal("Seal"), seal, "Location.getAnimal is returning the wrong animal");
+    }
+
+    @Test
+    void testToString() {
+        assertEquals(location.toString(), "Polar:\n[Seal, Penguin]");
     }
 }
