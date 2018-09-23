@@ -21,7 +21,7 @@ import static java.lang.Integer.parseInt;
 public class GameDataParser {
 
     private GameDataParser() {
-        throw new IllegalStateException("Class should not be instatiated");
+        throw new IllegalStateException("Class should not be instantiated");
     }
 
     /**

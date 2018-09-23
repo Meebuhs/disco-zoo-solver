@@ -32,7 +32,7 @@ public class Cell {
     private SolverApp solver;
 
     /**
-     * Creates a new cell.
+     * Sole constructor for Cell which sets the x and y coordinates and the associated solver as provided.
      *
      * @param x      The x coordinate of the cell.
      * @param y      The y coordinate of the cell.

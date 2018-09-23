@@ -7,7 +7,9 @@ public class Block {
     private final int x;
     private final int y;
 
-    /** Creates a new block. */
+    /**
+     * Sole constructor for Block which sets the x and y coordinates as provided.
+     */
     public Block(int x, int y) {
         this.x = x;
         this.y = y;

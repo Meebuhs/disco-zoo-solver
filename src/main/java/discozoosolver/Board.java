@@ -9,7 +9,7 @@ import java.util.function.Predicate;
 
 /**
  * Class representing the game board.
- *
+ * <p>
  * The board keeps a list of Cells and maintains the set of possible animal candidates based on the current state of
  * the cells and the solver.
  */
@@ -22,7 +22,8 @@ public class Board {
     private String location;
 
     /**
-     * Create a new board. Initialised as a BOARD_SIZE x BOARD_SIZE grid of empty cells.
+     * Sole constructor for Board which sets the associated solver as provided. Its cells are initialised as a
+     * BOARD_SIZE x BOARD_SIZE grid of empty cells.
      *
      * @param solver The solver which controls game state.
      */
@@ -53,7 +54,7 @@ public class Board {
      * eliminated if the candidate is a different animal and it contains the given block or if it is the same animal
      * and does not contain the given block.
      *
-     * @param block The block which contains the animal.
+     * @param block  The block which contains the animal.
      * @param animal The animal which was discovered.
      */
     public void confirmHit(Block block, String animal) {
@@ -240,6 +241,7 @@ public class Board {
 
     /**
      * Sets known status for each block in the candidate.
+     *
      * @param candidate The candidate which is known.
      * @return true if a change is made to any block in the candidate.
      */
@@ -256,7 +258,8 @@ public class Board {
 
     /**
      * Sets the status of the block which is known to contain animal.
-     * @param block The block which is known to contain animal.
+     *
+     * @param block  The block which is known to contain animal.
      * @param animal The animal which block contains.
      * @return true if a change is made to a block.
      */

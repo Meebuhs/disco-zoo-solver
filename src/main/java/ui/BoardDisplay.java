@@ -12,7 +12,7 @@ public class BoardDisplay {
     private Board board;
 
     /**
-     * Sole constructor for the BoardDisplay. Populates the grid with the cells from the provided board to the grid.
+     * Sole constructor for BoardDisplay which populates the grid with the cells from the provided board.
      *
      * @param board The board for which to create a display.
      */

@@ -16,7 +16,7 @@ public class Candidate {
     private final List<Block> position;
 
     /**
-     * Creates a new candidate.
+     * Sole constructor for Candidate which sets the animal and its position as provided.
      *
      * @param animal   The animal for which this is a candidate.
      * @param position The list of cell positions occupied by this candidate.

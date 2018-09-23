@@ -1,24 +1,20 @@
 package discozoosolver;
 
 /**
- * <p>
  * An immutable class representing an Animal.
- * </p>
- *
  * <p>
  * Animals are the focus of disco zoo's gameplay. Each game is a 5x5 board populated with 1-3 animals from the current
  * location. Each animal is unique and is identified by its name. They also have a pattern which defines how
  * their tiles are laid out on the game board.
- * </p>
  */
 public class Animal {
     private final String name;
     private final Pattern pattern;
 
     /**
-     * Creates a new animal.
+     * Sole constructor for Animal which sets its name and pattern as provided.
      *
-     * @param name Name of the animal
+     * @param name    Name of the animal
      * @param pattern Pattern of the animal
      */
     public Animal(String name, Pattern pattern) {

@@ -12,7 +12,7 @@ public class Location {
     private final List<Animal> animals;
 
     /**
-     * Creates a new location.
+     * Sole constructor for Location which sets the name and animals as provided.
      *
      * @param name    The name of the location.
      * @param animals The list of animals which can be encountered in this location.
@@ -38,6 +38,7 @@ public class Location {
 
     /**
      * Returns the Animal object with the given name if it can be found in this location.
+     *
      * @param name The name of the animal to return.
      * @return The Animal object with the given name if it can be found in this location.
      */

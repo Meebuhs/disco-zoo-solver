@@ -11,7 +11,7 @@ public class Console {
     private Text consoleText;
 
     /**
-     * Sole constructor for a console. The text is initialised to an empty string and its position is set.
+     * Sole constructor for Console. The text is initialised to an empty string and its position is set.
      */
     public Console() {
         consoleText = new Text("");

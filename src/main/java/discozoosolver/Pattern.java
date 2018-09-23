@@ -12,7 +12,7 @@ public class Pattern {
     private int width;
 
     /**
-     * Creates a new pattern.
+     * Sole constructor for Pattern which sets the blocks as provided.
      *
      * @param blocks The list of blocks which make up the pattern.
      */

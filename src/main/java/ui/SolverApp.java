@@ -16,6 +16,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * The SolverApp is the main application class which instantiates and arranges all of the visual elements.
+ */
 public class SolverApp extends Application {
     private Console console;
     private Map<String, Location> locations;
@@ -50,15 +53,27 @@ public class SolverApp extends Application {
         primaryStage.show();
     }
 
+    /**
+     * @param message The text to display in the consoles.
+     */
     public void setConsole(String message) {
         console.setText(message);
     }
 
-    void updateBoardDisplay() {
+    /**
+     * Updates the board display.
+     */
+    public void updateBoardDisplay() {
         board.updateDisplay();
     }
 
-    void startGame(String location, List<String> animals) {
+    /**
+     * Starts a new game in the board using the provided location and animals.
+     *
+     * @param location The location which is being searched.
+     * @param animals  The list of discoverable animals.
+     */
+    public void startGame(String location, List<String> animals) {
         board.resetBoard();
         board.setLocation(location);
         for (String animal : animals) {
@@ -68,21 +83,41 @@ public class SolverApp extends Application {
         updateBoardDisplay();
     }
 
-    List<String> getAnimalsFromLocation(String name) {
+    /**
+     * Returns the animal object with the provided name, if it is discoverable in the current location.
+     *
+     * @param name The name of the animal to return.
+     * @return The animal object which has the provided name.
+     */
+    public List<String> getAnimalsFromLocation(String name) {
         Location location = locations.get(name);
         List<Animal> animals = location.getAnimals();
         return animals.stream().map(Animal::getName).collect(Collectors.toList());
     }
 
+    /**
+     * Confirms that the provided animal was hit in the provided block.
+     *
+     * @param block  The block in which the animal was found.
+     * @param animal The animal which was found.
+     */
     public void confirmHit(Block block, String animal) {
         board.confirmHit(block, animal);
     }
 
+    /**
+     * Confirms that the provided block is empty.
+     *
+     * @param block The block which is empty.
+     */
     public void confirmMiss(Block block) {
         board.confirmMiss(block);
     }
 
-    List<String> getLocationList() {
+    /**
+     * @return A list of all locations.
+     */
+    public List<String> getLocationList() {
         return new ArrayList<>(locations.keySet());
     }
 }

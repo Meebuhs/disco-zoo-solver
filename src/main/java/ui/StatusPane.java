@@ -9,7 +9,7 @@ public class StatusPane {
     private VBox display;
 
     /**
-     * Sole constructor for the status pane.
+     * Sole constructor for StatusPane.
      */
     public StatusPane() {
         display = new VBox();

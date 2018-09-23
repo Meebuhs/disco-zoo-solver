@@ -9,7 +9,7 @@ public class OptionMenu {
     private VBox display;
 
     /**
-     * Sole constructor for the options menu
+     * Sole constructor for OptionMenu.
      */
     public OptionMenu() {
         display = new VBox();
