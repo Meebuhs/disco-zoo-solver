@@ -1,5 +1,6 @@
 # Disco Zoo Solver
-[![Build Status](https://travis-ci.org/Meebuhs/disco-zoo-solver.svg?branch=gradle)](https://travis-ci.org/Meebuhs/disco-zoo-solver)
+[![Build Status](https://travis-ci.org/Meebuhs/disco-zoo-solver.svg?branch=master)](https://travis-ci.org/Meebuhs/disco-zoo-solver)
+![[Code Quality](https://sonarcloud.io/dashboard?id=Meebuhs_disco-zoo-solver)](https://sonarcloud.io/api/project_badges/measure?project=Meebuhs_disco-zoo-solver&metric=alert_status)
 
 A solver for NimbleBit's mobile game [Disco Zoo](https://en.wikipedia.org/wiki/Disco_Zoo) built to enable an exploration of JavaFX.
 

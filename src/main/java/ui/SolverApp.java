@@ -3,10 +3,11 @@ package ui;
 import discozoosolver.Animal;
 import discozoosolver.Block;
 import discozoosolver.Board;
+import discozoosolver.Cell;
 import discozoosolver.GameDataParser;
 import discozoosolver.Location;
 import javafx.application.Application;
-import javafx.geometry.Insets;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -16,6 +17,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static discozoosolver.Constants.WINDOW_HEIGHT;
+import static discozoosolver.Constants.WINDOW_WIDTH;
+
 /**
  * The SolverApp is the main application class which instantiates and arranges all of the visual elements.
  */
@@ -23,6 +27,8 @@ public class SolverApp extends Application {
     private Console console;
     private Map<String, Location> locations;
     private Board board;
+    public double height = WINDOW_HEIGHT;
+    private BorderPane border;
 
     public static void main(String[] args) {
         launch(args);
@@ -35,22 +41,31 @@ public class SolverApp extends Application {
 
         primaryStage.setTitle("Disco Zoo Solver");
 
-        BorderPane border = new BorderPane();
+        border = new BorderPane();
         ToolPane toolPane = new ToolPane(this);
-        StatusPane statusPane = new StatusPane();
-        OptionMenu optionMenu = new OptionMenu();
+        //StatusPane statusPane = new StatusPane();
+        //OptionMenu optionMenu = new OptionMenu();
         BoardDisplay boardDisplay = board.getBoardDisplay();
-        BorderPane.setMargin(boardDisplay.getDisplay(), new Insets(75, 45, 75, 45));
         console = new Console();
 
         border.setTop(toolPane.getToolBar());
-        border.setLeft(statusPane.getDisplay());
+        //border.setLeft(statusPane.getDisplay());
         border.setCenter(boardDisplay.getDisplay());
-        border.setRight(optionMenu.getDisplay());
+        //border.setRight(optionMenu.getDisplay());
         border.setBottom(console.getDisplay());
 
-        primaryStage.setScene(new Scene(border, 1080, 720));
+        primaryStage.heightProperty().addListener(this::setHeight);
+
+        primaryStage.setScene(new Scene(border, WINDOW_WIDTH, height));
         primaryStage.show();
+    }
+
+    private void setHeight(ObservableValue obs, Number oldVal, Number newVal) {
+        for (Cell cell : board.getCells()) {
+            cell.getDisplay().setPrefSize();
+        }
+        height = border.getHeight();
+
     }
 
     /**

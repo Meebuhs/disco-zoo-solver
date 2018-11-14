@@ -3,11 +3,14 @@ package ui;
 import discozoosolver.Cell;
 import discozoosolver.Constants;
 import javafx.event.Event;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 import java.util.List;
+
+import static discozoosolver.Constants.CELL_HEIGHT_FACTOR;
 
 /**
  * Display class which is responsible for rendering the contents of a single cell. The main responsibility of a cell is
@@ -34,9 +37,18 @@ public class CellDisplay {
      */
     public CellDisplay(SolverApp solver, Cell cell) {
         contents = new GridPane();
-        contents.setPrefSize(90, 90);
         this.solver = solver;
         this.cell = cell;
+        setPrefSize();
+    }
+
+    void setPrefSize() {
+        contents.setPrefSize(this.solver.height * CELL_HEIGHT_FACTOR, this.solver.height * CELL_HEIGHT_FACTOR);
+        for (Node item : contents.getChildren()) {
+            ImageView iv = (ImageView) item;
+            double factor = ((cell.getFinalised()) || cell.getKnown()) ? 1 : 0.5;
+            iv.setFitWidth(this.solver.height * CELL_HEIGHT_FACTOR * factor);
+        }
     }
 
     /**
@@ -137,7 +149,6 @@ public class CellDisplay {
         iv.setCache(true);
         iv.setPickOnBounds(true);
         iv.setOpacity(0.9);
-        iv.setFitWidth(45);
 
         if (!(cell.getFinalised())) {
             if (filename.equals(Constants.BLANK_DARK)) {
@@ -155,7 +166,9 @@ public class CellDisplay {
         }
 
         if ((cell.getFinalised()) || cell.getKnown()) {
-            iv.setFitWidth(90);
+            iv.setFitWidth(this.solver.height * CELL_HEIGHT_FACTOR);
+        } else {
+            iv.setFitWidth(this.solver.height * CELL_HEIGHT_FACTOR * 0.5);
         }
 
         return iv;

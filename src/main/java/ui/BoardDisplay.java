@@ -2,6 +2,7 @@ package ui;
 
 import discozoosolver.Board;
 import discozoosolver.Cell;
+import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -30,6 +31,7 @@ public class BoardDisplay {
     private GridPane createDisplay() {
         GridPane gridPane = new GridPane();
         gridPane.setGridLinesVisible(true);
+        gridPane.setAlignment(Pos.CENTER);
         for (Cell cell : board.getCells()) {
             gridPane.add(cell.getDisplay().getContents(), cell.getX(), cell.getY());
         }

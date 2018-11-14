@@ -28,6 +28,13 @@ public final class Constants {
     /* Light blank icon filename */
     public static final String BLANK_LIGHT = "blank-light";
 
+    /* Proportion of the view height that a cell should occupy */
+    public static final double CELL_HEIGHT_FACTOR = 0.125;
+
+    /* Default window dimensions */
+    public static final int WINDOW_HEIGHT = 720;
+    public static final int WINDOW_WIDTH = 1080;
+
     private Constants() {
         throw new AssertionError();
     }
