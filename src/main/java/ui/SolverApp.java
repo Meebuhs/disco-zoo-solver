@@ -7,7 +7,6 @@ import discozoosolver.Cell;
 import discozoosolver.GameDataParser;
 import discozoosolver.Location;
 import javafx.application.Application;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -28,7 +27,6 @@ public class SolverApp extends Application {
     private Map<String, Location> locations;
     private Board board;
     private double height = WINDOW_HEIGHT;
-    private BorderPane border;
 
     public static void main(String[] args) {
         launch(args);
@@ -41,7 +39,7 @@ public class SolverApp extends Application {
 
         primaryStage.setTitle("Disco Zoo Solver");
 
-        border = new BorderPane();
+        BorderPane border = new BorderPane();
         ToolPane toolPane = new ToolPane(this);
         BoardDisplay boardDisplay = board.getBoardDisplay();
         console = new Console();
