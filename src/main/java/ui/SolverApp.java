@@ -27,7 +27,7 @@ public class SolverApp extends Application {
     private Console console;
     private Map<String, Location> locations;
     private Board board;
-    public double height = WINDOW_HEIGHT;
+    private double height = WINDOW_HEIGHT;
     private BorderPane border;
 
     public static void main(String[] args) {
@@ -43,34 +43,22 @@ public class SolverApp extends Application {
 
         border = new BorderPane();
         ToolPane toolPane = new ToolPane(this);
-        //StatusPane statusPane = new StatusPane();
-        //OptionMenu optionMenu = new OptionMenu();
         BoardDisplay boardDisplay = board.getBoardDisplay();
         console = new Console();
 
         border.setTop(toolPane.getToolBar());
-        //border.setLeft(statusPane.getDisplay());
         border.setCenter(boardDisplay.getDisplay());
-        //border.setRight(optionMenu.getDisplay());
         border.setBottom(console.getDisplay());
 
-        primaryStage.heightProperty().addListener(this::setHeight);
+        primaryStage.heightProperty().addListener((obs, oldVal, newVal) -> {
+            for (Cell cell : board.getCells()) {
+                cell.getDisplay().setPrefSize();
+            }
+            height = border.getHeight();
+        });
 
         primaryStage.setScene(new Scene(border, WINDOW_WIDTH, height));
         primaryStage.show();
-    }
-
-    /**
-     * Triggered when the window is resized and updates the window dimensions.
-     * <p>
-     * obs, oldVal and newVal are returned by the change event and must be kept as arguments for the listener.
-     */
-    private void setHeight(ObservableValue obs, Number oldVal, Number newVal) {
-        for (Cell cell : board.getCells()) {
-            cell.getDisplay().setPrefSize();
-        }
-        height = border.getHeight();
-
     }
 
     /**
@@ -139,5 +127,12 @@ public class SolverApp extends Application {
      */
     public List<String> getLocationList() {
         return new ArrayList<>(locations.keySet());
+    }
+
+    /**
+     * @return The height of the window.
+     */
+    public double getHeight() {
+        return height;
     }
 }

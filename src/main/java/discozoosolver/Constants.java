@@ -8,7 +8,7 @@ public final class Constants {
     /* Size of the game board */
     static final int BOARD_SIZE = 5;
     /* Background colours for each environment type */
-    public static final Map<String, Color> BOARD_COLOURS = Map.ofEntries(
+    protected static final Map<String, Color> BOARD_COLOURS = Map.ofEntries(
             Map.entry("Ice Age", Color.rgb(162, 187, 176)),
             Map.entry("Mountain", Color.rgb(119, 145, 133)),
             Map.entry("Moon", Color.rgb(116, 109, 106)),

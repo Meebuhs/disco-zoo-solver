@@ -43,11 +43,11 @@ public class CellDisplay {
     }
 
     void setPrefSize() {
-        contents.setPrefSize(this.solver.height * CELL_HEIGHT_FACTOR, this.solver.height * CELL_HEIGHT_FACTOR);
+        contents.setPrefSize(this.solver.getHeight() * CELL_HEIGHT_FACTOR, this.solver.getHeight() * CELL_HEIGHT_FACTOR);
         for (Node item : contents.getChildren()) {
             ImageView iv = (ImageView) item;
             double factor = ((cell.getFinalised()) || cell.getKnown()) ? 1 : 0.5;
-            iv.setFitWidth(this.solver.height * CELL_HEIGHT_FACTOR * factor);
+            iv.setFitWidth(this.solver.getHeight() * CELL_HEIGHT_FACTOR * factor);
         }
     }
 
@@ -168,9 +168,9 @@ public class CellDisplay {
 
         // If a cell is finalised or known then it only has one item in it which should occupy the whole space.
         if ((cell.getFinalised()) || cell.getKnown()) {
-            iv.setFitWidth(this.solver.height * CELL_HEIGHT_FACTOR);
+            iv.setFitWidth(this.solver.getHeight() * CELL_HEIGHT_FACTOR);
         } else {
-            iv.setFitWidth(this.solver.height * CELL_HEIGHT_FACTOR * 0.5);
+            iv.setFitWidth(this.solver.getHeight() * CELL_HEIGHT_FACTOR * 0.5);
         }
 
         return iv;
