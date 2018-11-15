@@ -60,6 +60,11 @@ public class SolverApp extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Triggered when the window is resized and updates the window dimensions.
+     * <p>
+     * obs, oldVal and newVal are returned by the change event and must be kept as arguments for the listener.
+     */
     private void setHeight(ObservableValue obs, Number oldVal, Number newVal) {
         for (Cell cell : board.getCells()) {
             cell.getDisplay().setPrefSize();

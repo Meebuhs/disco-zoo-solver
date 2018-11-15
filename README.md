@@ -24,7 +24,7 @@ cd disco-zoo-solver
 
 #### Requirements
 
-Requires Java 10 and JavaFX (shipped with OracleJDK but not OpenJDK))
+Built using Java 11 and JavaFX. See the [openjfx getting started](https://openjfx.io/openjfx-docs/) for set up documentation.
 
 ## License
 

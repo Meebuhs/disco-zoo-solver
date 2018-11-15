@@ -150,6 +150,7 @@ public class CellDisplay {
         iv.setPickOnBounds(true);
         iv.setOpacity(0.9);
 
+        // Add the onclick events
         if (!(cell.getFinalised())) {
             if (filename.equals(Constants.BLANK_DARK)) {
                 iv.setOnMouseClicked((Event event) -> {
@@ -165,6 +166,7 @@ public class CellDisplay {
             }
         }
 
+        // If a cell is finalised or known then it only has one item in it which should occupy the whole space.
         if ((cell.getFinalised()) || cell.getKnown()) {
             iv.setFitWidth(this.solver.height * CELL_HEIGHT_FACTOR);
         } else {
