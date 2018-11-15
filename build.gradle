@@ -1,0 +1,126 @@
+plugins {
+    id 'idea'
+    id 'java'
+    id 'application'
+    id 'org.sonarqube' version '2.6.2'
+    id 'jacoco'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs 'src/main/java'
+        }
+    }
+    test {
+        java {
+            srcDirs 'src/test'
+        }
+    }
+    resources {
+        java {
+            srcDirs 'src/resources'
+        }
+    }
+}
+
+dependencies {
+    def final junitVersion = "5.3.1"
+    def final openjfxVersion = "11.0.1"
+    def final platform = "linux"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:' + junitVersion
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:' + junitVersion
+    compile 'org.openjfx:javafx-base:' + openjfxVersion + ':' + platform
+    compile 'org.openjfx:javafx-graphics:' + openjfxVersion + ':' + platform
+    compile 'org.openjfx:javafx-controls:' + openjfxVersion + ':' + platform
+    compile 'org.openjfx:javafx-fxml:' + openjfxVersion + ':' + platform
+}
+
+compileJava {
+    doFirst {
+        options.compilerArgs = [
+                '--module-path', classpath.asPath,
+                '--add-modules', 'javafx.controls',
+                '--add-modules', 'javafx.graphics',
+                '--add-modules', 'javafx.base'
+        ]
+    }
+}
+
+run {
+    doFirst {
+        jvmArgs = [
+                '--module-path', classpath.asPath,
+                '--add-modules', 'javafx.controls',
+                '--add-modules', 'javafx.graphics',
+                '--add-modules', 'javafx.base'
+        ]
+    }
+}
+
+test {
+    useJUnitPlatform()
+    dependsOn 'cleanTest'
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+    afterSuite { desc, result ->
+        if (!desc.parent) {
+            println "\nTest result: ${result.resultType}"
+            println "Test summary: ${result.testCount} tests, " +
+                    "${result.successfulTestCount} succeeded, " +
+                    "${result.failedTestCount} failed, " +
+                    "${result.skippedTestCount} skipped"
+        }
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "Meebuhs_disco-zoo-solver"
+        property "sonar.organization", "meebuhs-github"
+        property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.jacoco.reportPaths", "build/jacoco/test.exec"
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'ui.Main'
+    }
+    baseName = 'DiscoZooSolver'
+    version = '0.1.0'
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'DiscoZooSolver',
+                'Implementation-Version': '0.1.0',
+                'Main-Class': 'ui.Main',
+                'Class-Path': ". ${configurations.compile.collect { it.getName() }.join(' ')}"
+    }
+    baseName = 'DiscoZooSolver'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+jacoco {
+    toolVersion = "0.8.2"
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
+check.dependsOn jacocoTestReport
+
+mainClassName = 'ui.SolverApp'
+sourceCompatibility = 11
+targetCompatibility = 11

@@ -1,16 +1,25 @@
-package main.ui;
+package ui;
 
 import javafx.scene.layout.VBox;
 
+/**
+ * Display class for the options menu.
+ */
 public class OptionMenu {
     private VBox display;
 
+    /**
+     * Sole constructor for OptionMenu.
+     */
     public OptionMenu() {
         display = new VBox();
         display.setPrefWidth(270);
     }
 
-    public VBox getDisplay() {
+    /**
+     * @return The display element for this options menu.
+     */
+    VBox getDisplay() {
         return display;
     }
 }
